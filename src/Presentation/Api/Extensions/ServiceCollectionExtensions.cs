@@ -42,12 +42,21 @@
             return services;
         }
 
-        public static IServiceCollection AddSendGridSettings(
+        //public static IServiceCollection AddSendGridSettings(
+        //    this IServiceCollection services,
+        //    IConfiguration configuration)
+        //{
+        //    services
+        //        .Configure<SendGridOptions>(options => { options.SendGridApiKey = configuration.GetSendGridApiKey(); });
+
+        //    return services;
+        //}
+
+        public static IServiceCollection AddEmailSettings(
             this IServiceCollection services,
             IConfiguration configuration)
         {
-            services
-                .Configure<SendGridOptions>(options => { options.SendGridApiKey = configuration.GetSendGridApiKey(); });
+            services.Configure<EmailSettings>(configuration.GetSection("EmailSettings"));
 
             return services;
         }

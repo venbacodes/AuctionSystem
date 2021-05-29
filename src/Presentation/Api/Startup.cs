@@ -39,7 +39,7 @@ namespace Api
                 .AddInfrastructure(this.Configuration)
                 .AddApplication()
                 .AddCloudinarySettings(this.Configuration)
-                .AddSendGridSettings(this.Configuration)
+                .AddEmailSettings(this.Configuration)
                 .AddJwtAuthentication(services.AddJwtSecret(this.Configuration))
                 .AddRequiredServices()
                 .AddRedisCache(this.Configuration)

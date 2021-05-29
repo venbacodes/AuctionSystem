@@ -4,13 +4,14 @@
     using System.Threading.Tasks;
     using Application.Bids.Commands.CreateBid;
     using Application.Bids.Queries.Details;
+    using Microsoft.AspNetCore.Authentication.JwtBearer;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
     using SwaggerExamples;
     using Swashbuckle.AspNetCore.Annotations;
 
-    [Authorize]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class BidsController : BaseController
     {
         [HttpPost]

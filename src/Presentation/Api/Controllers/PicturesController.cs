@@ -7,13 +7,14 @@
     using Application.Pictures.Commands.CreatePicture;
     using Application.Pictures.Commands.DeletePicture;
     using Application.Pictures.Queries;
+    using Microsoft.AspNetCore.Authentication.JwtBearer;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
     using SwaggerExamples;
     using Swashbuckle.AspNetCore.Annotations;
 
-    [Authorize]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class PicturesController : BaseController
     {
         /// <summary>

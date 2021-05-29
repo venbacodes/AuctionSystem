@@ -8,8 +8,7 @@ namespace Application.Common
     {
         public static async Task SendConfirmationEmail(this IEmailSender emailSender, string email, string token)
         {
-            await emailSender.SendEmailAsync(AppConstants.AppMainEmailAddress, email, "Verification code",
-                $"Thanks for registering. Your verification code is <b>{token}</b>.");
+            await emailSender.SendEmailAsync(email, "Verification code", $"Thanks for registering. Your verification code is <b>{token}</b>.");
         }
     }
 }

@@ -103,12 +103,12 @@ namespace Application.Common
                     })
                     .SingleOrDefaultAsync();
 
-                var emailSendToItemOwner = await this.emailSender.SendEmailAsync(AppConstants.AppMainEmailAddress,
+                var emailSendToItemOwner = await this.emailSender.SendEmailAsync(
                     item.UserEmail,
                     "Your item was sold!",
                     string.Format(CongratsMessageForItemSeller, item.UserFullName, item.Title, winnerBid.Amount,
                         winnerBid.UserEmail));
-                var successful = await this.emailSender.SendEmailAsync(AppConstants.AppMainEmailAddress,
+                var successful = await this.emailSender.SendEmailAsync(
                     winnerBid.UserEmail,
                     "You won a bid!",
                     string.Format(CongratsMessage, winnerBid.UserFullName, item.Title));

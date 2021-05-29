@@ -11,6 +11,7 @@
     using Application.Items.Queries.Details;
     using Application.Items.Queries.List;
     using AutoMapper;
+    using Microsoft.AspNetCore.Authentication.JwtBearer;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
@@ -68,7 +69,7 @@
         /// <summary>
         /// Creates item
         /// </summary>
-        [Authorize]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpPost]
         [SwaggerResponse(
             StatusCodes.Status201Created,
@@ -92,7 +93,7 @@
         /// </summary>
         /// <param name="id"></param>
         /// <param name="model"></param>
-        [Authorize]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpPut("{id}")]
         [SwaggerResponse(
             StatusCodes.Status204NoContent,
@@ -123,7 +124,7 @@
         /// Deletes item
         /// </summary>
         /// <param name="id"></param>
-        [Authorize]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpDelete("{id}")]
         [SwaggerResponse(
             StatusCodes.Status204NoContent,

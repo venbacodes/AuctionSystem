@@ -8,6 +8,7 @@
     using Application.Common.Models;
     using AutoMapper;
     using Common;
+    using Microsoft.AspNetCore.Authentication.JwtBearer;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
@@ -15,7 +16,7 @@
     using SwaggerExamples;
     using Swashbuckle.AspNetCore.Annotations;
 
-    [Authorize(Roles = AppConstants.AdministratorRole)]
+    [Authorize(Roles = AppConstants.AdministratorRole, AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class AdminController : BaseController
     {
         private const int CachingTimeInMinutes = 10;
